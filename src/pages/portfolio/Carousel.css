@@ -1,5 +1,5 @@
 .carousel {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .inner {
@@ -19,8 +19,15 @@
 .indicators {
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
 .indicators > button {
-    margin: 5px;
+    padding: 5px;
+}
+
+.indicators > button.active {
+    background-color: brown;
+    border: 1px solid red;
+    border-radius: 50%;
 }

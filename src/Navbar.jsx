@@ -13,7 +13,7 @@ function Navbar () {
                     <Link className="button" to='/contact'>Contact</Link>
                 </li>
                 <li>
-                    <Link className="button" to='/portfolio/portfolio'>Portfolio</Link>
+                    <Link className="button" to='/portfolio'>Portfolio</Link>
                 </li>
                 <li>
                     <Link className="button" to='/blog'>Blog</Link>

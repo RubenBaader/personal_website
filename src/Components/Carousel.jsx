@@ -44,17 +44,17 @@ const Carousel = (props) => {
     const next = () => {
         if (isRepeating || currentIndex < (length - show)) {
             setcurrentIndex(prevState => prevState + 1)
-            handleTransitionEnd()
+            handleTransitionEnd() //prevents item array from going out of bounds on button spam
         }
     }
     const prev = () => {
         if (isRepeating || currentIndex > 0) {
             setcurrentIndex(prevState => prevState - 1)
-            handleTransitionEnd()
+            handleTransitionEnd() //prevents item array from going out of bounds on button spam
         }
     }
 
-    // touch screen functionality - scrol carousel based on relative touch movement
+    // touch screen functionality - scroll based on relative touch movement
     const handleTouchStart = (event) => {
         const touchDown = event.touches[0].clientX
         setTouchPosition(touchDown)
@@ -79,9 +79,7 @@ const Carousel = (props) => {
 
         setTouchPosition(null)
     }
-
-
-
+    // enable infinite scrolling effect by adding clones equal to show items at either end of the item list
     const renderExtraPrev = () => {
         let output = []
         for (let index = 0; index < show; index++) {
@@ -90,7 +88,6 @@ const Carousel = (props) => {
         output.reverse()
         return output
     }
-
     const renderExtraNext = () => {
         let output = []
         for (let index = 0; index < show; index++) {
@@ -98,7 +95,7 @@ const Carousel = (props) => {
         }
         return output
     }
-
+    // enable autoscrolling
     useEffect(() => {
         const interval = setInterval(() => {
             if (!paused) {
@@ -133,7 +130,7 @@ const Carousel = (props) => {
                             transform: `translateX(-${currentIndex * (100 / show)}%)`,
                             transition: !transitionEnabled ? 'none' : undefined
                         }}
-                        // onTransitionEnd={() => handleTransitionEnd()}
+                        onTransitionEnd={() => handleTransitionEnd()} //this check smoothes scrolling at the end of the item array
                     >
                         {
                             (length > show && isRepeating) &&

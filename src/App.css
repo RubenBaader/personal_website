@@ -1,23 +1,38 @@
+:root {
+  --main-bg-color:hsl(0, 0%, 78%);
+  --main-text-color: hsl(227, 15%, 5%);
+  --secondary-bg-color: hsl(197, 15%, 36%);
+  --attention-color-one: hsl(98, 42%, 42%);
+  --attention-color-two: hsl(61, 30%, 30%);
+}
+
 * {
+  box-sizing: border-box;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .nav {
-  background-color: rgb(84, 144, 196);
-  padding: calc(7px + 0.25vmin);
+  background-color: var(--secondary-bg-color);
+
+  padding: calc(7px + 1.4vmin);
   margin: 0;
   width: 100%;
+
+  border-radius: 0 0 0.8em 0.8em / 0 0 0.5em 0.5em;
+}
+
+.nav ul {
+  background-color: var(--secondary-bg-color);
 }
 
 .nav * {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 2%;
-
-  /* border: 1px solid red; */
+  gap: 2.5ch;
 }
 
 .button {
@@ -33,6 +48,33 @@
   border-left: 1px solid #CCCCCC;
   border-radius: 3px;
 }
+
+/* Grid container for blog items */
+.tile-container {
+  width: 100%;
+  min-height: 90vh;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) ;
+  gap: 0.75em;
+
+  padding: calc(10px + 0.5vmin);
+  border: 6px double hsl(0, 0%, 40%);
+  border-radius: 0.6em;
+}
+/* tile block for blog and carousel items */
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* min-width: 150px; */
+  height: 14em;
+
+  border: 3px double hsl(0, 0%, 50%);
+  border-radius: 1.0em;
+}
+
 
 
 @media screen and (min-width: 1000px) {

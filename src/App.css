@@ -1,19 +1,11 @@
 @font-face {
   font-family: SourceSansPro-Semibold;
-  src: url("./Fonts/SourceSansPro-Semibold.otf") format('embedded open-type'),
-       url("./Fonts/SourceSansPro-Semibold.otf") format('woff2'),
-       url("./Fonts/SourceSansPro-Semibold.otf") format('woff'),
-       url("./Fonts/SourceSansPro-Semibold.otf") format('truetype'),
-       url("./Fonts/SourceSansPro-Semibold.otf") format('svg');
+  src: url("./Fonts/SourceSansPro-Semibold.otf");
 
 }
 @font-face {
   font-family: Merriweather-Regular;
-  src: url("./Fonts/Merriweather-Regular.otf") format('embedded open-type'),
-       url("./Fonts/Merriweather-Regular.otf") format('woff2'),
-       url("./Fonts/Merriweather-Regular.otf") format('woff'),
-       url("./Fonts/Merriweather-Regular.otf") format('truetype'),
-       url("./Fonts/Merriweather-Regular.otf") format('svg');
+  src: url("./Fonts/Merriweather-Regular.otf");
 }
 
 :root {
@@ -23,9 +15,10 @@
   --attention-color-one: hsl(98, 42%, 42%);
   --attention-color-two: hsl(61, 30%, 30%);
 
-  --main-font-family: SourceSansPro-Semibold;
-  --secondary-font-family: Merriweather-Regular;
+  --main-font-family: SourceSansPro-Semibold, Optima, 'Arial Narrow';
+  --secondary-font-family: Merriweather-Regular, Didot, 'American Typewriter';
 }
+
 
 * {
   box-sizing: border-box;
@@ -57,22 +50,23 @@
 
 /* Navbar buttons - this abomination is a placeholder to be cleaned later */
 .button {
-  font-family: var(--secondary-font-family);
-  /* font-family: Consolas, Menlo, Monaco; */
-  /* font: bold 11px; */
-  text-decoration: none;
-  background-color: var(--attention-color-two);
-  color: #1f1f1f;
   padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
   border-radius: 3px;
+
+  background-color: var(--attention-color-two);
+  font-family: var(--secondary-font-family);
+  color: var(--main-text-color);
+  text-decoration: none;
 }
 
 /* Headers */
 h1 {
+  margin: 0.5em;
+
   color: var(--main-text-color);
   text-align: center;
   font-family: var(--main-font-family);

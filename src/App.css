@@ -9,7 +9,11 @@
 }
 @font-face {
   font-family: Merriweather-Regular;
-  src: url("./Fonts/Merriweather-Regular.otf");
+  src: url("./Fonts/Merriweather-Regular.otf") format('embedded open-type'),
+       url("./Fonts/Merriweather-Regular.otf") format('woff2'),
+       url("./Fonts/Merriweather-Regular.otf") format('woff'),
+       url("./Fonts/Merriweather-Regular.otf") format('truetype'),
+       url("./Fonts/Merriweather-Regular.otf") format('svg');
 }
 
 :root {

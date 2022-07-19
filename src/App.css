@@ -1,9 +1,26 @@
+@font-face {
+  font-family: SourceSansPro-Semibold;
+  src: url("./Fonts/SourceSansPro-Semibold.otf") format('embedded open-type'),
+       url("./Fonts/SourceSansPro-Semibold.otf") format('woff2'),
+       url("./Fonts/SourceSansPro-Semibold.otf") format('woff'),
+       url("./Fonts/SourceSansPro-Semibold.otf") format('truetype'),
+       url("./Fonts/SourceSansPro-Semibold.otf") format('svg');
+
+}
+@font-face {
+  font-family: Merriweather-Regular;
+  src: url("./Fonts/Merriweather-Regular.otf");
+}
+
 :root {
   --main-bg-color:hsl(0, 0%, 78%);
   --main-text-color: hsl(227, 15%, 5%);
   --secondary-bg-color: hsl(197, 15%, 36%);
   --attention-color-one: hsl(98, 42%, 42%);
   --attention-color-two: hsl(61, 30%, 30%);
+
+  --main-font-family: SourceSansPro-Semibold;
+  --secondary-font-family: Merriweather-Regular;
 }
 
 * {
@@ -14,6 +31,7 @@
   padding: 0;
 }
 
+/* Navbar */
 .nav {
   background-color: var(--secondary-bg-color);
 
@@ -23,23 +41,23 @@
 
   border-radius: 0 0 0.8em 0.8em / 0 0 0.5em 0.5em;
 }
-
-.nav ul {
-  background-color: var(--secondary-bg-color);
-}
-
 .nav * {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   gap: 2.5ch;
 }
+.nav ul {
+  background-color: var(--secondary-bg-color);
+}
 
+/* Navbar buttons - this abomination is a placeholder to be cleaned later */
 .button {
-  font-family: Consolas, Menlo, Monaco;
-  font: bold 11px;
+  font-family: var(--secondary-font-family);
+  /* font-family: Consolas, Menlo, Monaco; */
+  /* font: bold 11px; */
   text-decoration: none;
-  background-color: #7778a8;
+  background-color: var(--attention-color-two);
   color: #1f1f1f;
   padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
@@ -49,19 +67,28 @@
   border-radius: 3px;
 }
 
+/* Headers */
+h1 {
+  color: var(--main-text-color);
+  text-align: center;
+  font-family: var(--main-font-family);
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+
+
 /* Grid container for blog items */
 .tile-container {
-  width: 100%;
-  min-height: 90vh;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) ;
   gap: 0.75em;
+  width: 100%;
+  min-height: 90vh;
 
   padding: calc(10px + 0.5vmin);
   border: 6px double hsl(0, 0%, 40%);
   border-radius: 0.6em;
 }
+
 /* tile block for blog and carousel items */
 .tile {
   display: flex;
@@ -73,10 +100,12 @@
 
   border: 3px double hsl(0, 0%, 50%);
   border-radius: 1.0em;
+
+  font-family: var(--secondary-font-family);
 }
 
 
-
+/* media queries */
 @media screen and (min-width: 1000px) {
   body {
     margin: 0 20vw 0 20vw;

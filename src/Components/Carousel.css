@@ -21,9 +21,10 @@
 
 .carousel-content {
     display: flex;
-    transition: all 250ms linear;
+    transition: all 350ms linear;
     -ms-overflow-style: none; /* nonstandard property */
     scrollbar-width:  none;
+    font-size: xx-large;
 
     /* 
     background-color: hsl(0, 0%, 50%);

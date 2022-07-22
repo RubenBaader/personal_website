@@ -10,6 +10,9 @@ function Blog () {
                 <article className="tile">Look at this placeholder</article>
                 <article className="tile">Look at this placeholder</article>
                 <article className="tile">Look at this placeholder</article>
+                <article className="tile">Look at this placeholder</article>
+                <article className="tile">Look at this placeholder</article>
+                <article className="tile">Look at this placeholder</article>
             </main>
         </Fragment>
         

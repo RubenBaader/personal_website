@@ -1,3 +1,4 @@
+/* uploaded fonts */
 @font-face {
   font-family: SourceSansPro-Semibold;
   src: url("./Fonts/SourceSansPro-Semibold.otf");
@@ -8,7 +9,11 @@
   src: url("./Fonts/Merriweather-Regular.otf");
 }
 
+/* store variables */
 :root {
+  --main-width: 95ch;
+  --big-screen-margin: calc((100vw - var(--main-width) )/2);
+
   --main-bg-color:hsl(0, 0%, 78%);
   --main-text-color: hsl(227, 15%, 5%);
   --secondary-bg-color: hsl(197, 15%, 36%);
@@ -19,11 +24,10 @@
   --secondary-font-family: Merriweather-Regular, Didot, 'American Typewriter';
 }
 
-
 * {
   box-sizing: border-box;
   background-color: var(--main-bg-color);
-  color: var(--main-text-color);
+  /* color: var(--main-text-color); */
   margin: 0;
   padding: 0;
 }
@@ -34,7 +38,13 @@ body {
 
 #root {
   height: 100%;
-  /* height: clamp(80%, max-content, 100%); */
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  align-items: center;
 }
 
 /* Navbar */
@@ -74,12 +84,23 @@ body {
 
 /* Headers */
 h1 {
-  margin: 0.5em;
+  /* margin: 0.5em; */
 
   color: var(--main-text-color);
   text-align: center;
   font-family: var(--main-font-family);
-  /* font-family: 'Courier New', Courier, monospace; */
+  font-size: 2.5rem;
+}
+
+/* Main text */
+.main-text {
+  margin: 0 2ch 0 2ch;
+  /* max-width: 75ch; */
+  /* width: clamp(45ch, 100% , 75ch); */
+  color: var(--secondary-font-family);
+  text-align: justify;
+  font-family: var(--secondary-font-family);
+  overflow-wrap: normal;
 }
 
 
@@ -99,23 +120,36 @@ h1 {
 
 /* tile block for blog and carousel items */
 .tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  /* min-width: 150px; */
+  display: grid;
+  grid-template-areas: 
+    "img"
+    "header"
+    "description";
   height: 14em;
-
   border: 3px double hsl(0, 0%, 50%);
   border-radius: 1.0em;
-
+  overflow: hidden;
   font-family: var(--secondary-font-family);
 }
-
+.tile > * {
+  text-align: center;
+}
+.tile > img {
+  grid-area: img;
+  object-fit: cover;
+  width: 100%;
+}
+.tile > :is(h2, h3, h4, h5, h6) { 
+  grid-area: header;
+}
+.tile > p {
+  grid-area: description;
+}
 
 /* media queries */
 @media screen and (min-width: 1000px) {
   body {
-    margin: 0 20vw 0 20vw;
+    margin: 0 var(--big-screen-margin) 0 var(--big-screen-margin);
+    /* margin: 0 20vw 0 20vw; */
   }
 }

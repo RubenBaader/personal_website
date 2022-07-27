@@ -1,0 +1,50 @@
+/* Grid container */
+.tile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) ;
+    gap: 0.75em;
+    width: 100%;
+    height: max-content;
+    overflow: auto;
+  
+    padding: calc(10px + 0.5vmin);
+    border: 6px double var(--main-border-color);
+    border-radius: 0.6em;
+  }
+  
+  /* tile block */
+  .tile {
+    display: grid;
+    grid-template-areas: 
+      "img"
+      "header"
+      "description";
+    grid-template-rows: 3fr 1fr max-content;
+    height: 14em;
+    border: 3px double hsl(0, 0%, 50%);
+    border-radius: 1.0em;
+    overflow: hidden;
+    font-family: var(--secondary-font-family);
+    transition: transform 125ms ease-in-out;
+  }
+  .tile:hover {
+    transform: scale(1.1);
+  }
+  .tile > * {
+    text-align: center;
+  }
+  .tile > img {
+    grid-area: img;
+    object-fit: cover;
+    width: 100%;
+  }
+  .tile > :is(h2, h3, h4, h5, h6) { 
+    grid-area: header;
+  }
+  .tile > p {
+    display: none;
+    grid-area: description;
+  }
+  .tile:hover > p {
+    display: initial;
+  }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Blog.css"
 
 function Blog () {
     return (
@@ -13,13 +14,46 @@ function Blog () {
                     <h4>Hello there</h4>
                     <p>Look at this placeholder</p>
                 </article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
-                <article className="tile">Look at this placeholder</article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
+                <article className="tile">
+                    <img src="https://www.direct8.fr/wp-content/uploads/2022/05/Obi-Wan-Kenobi.jpg" alt="General Kenobi"/>
+                    <h4>Hello there</h4>
+                    <p>Look at this placeholder</p>
+                </article>
             </div>
         </main>
         

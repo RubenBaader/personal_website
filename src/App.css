@@ -15,8 +15,9 @@
   --big-screen-margin: calc((100vw - var(--main-width) )/2);
 
   --main-bg-color:hsl(0, 0%, 78%);
-  --main-text-color: hsl(227, 15%, 5%);
   --secondary-bg-color: hsl(197, 15%, 36%);
+  --main-border-color: hsl(0, 0%, 40%);
+  --main-text-color: hsl(227, 15%, 5%);
   --attention-color-one: hsl(98, 42%, 42%);
   --attention-color-two: hsl(61, 30%, 30%);
 
@@ -101,49 +102,6 @@ h1 {
   text-align: justify;
   font-family: var(--secondary-font-family);
   overflow-wrap: normal;
-}
-
-
-/* Grid container for blog items */
-.tile-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) ;
-  gap: 0.75em;
-  width: 100%;
-  height: max-content;
-  overflow: auto;
-
-  padding: calc(10px + 0.5vmin);
-  border: 6px double hsl(0, 0%, 40%);
-  border-radius: 0.6em;
-}
-
-/* tile block for blog and carousel items */
-.tile {
-  display: grid;
-  grid-template-areas: 
-    "img"
-    "header"
-    "description";
-  height: 14em;
-  border: 3px double hsl(0, 0%, 50%);
-  border-radius: 1.0em;
-  overflow: hidden;
-  font-family: var(--secondary-font-family);
-}
-.tile > * {
-  text-align: center;
-}
-.tile > img {
-  grid-area: img;
-  object-fit: cover;
-  width: 100%;
-}
-.tile > :is(h2, h3, h4, h5, h6) { 
-  grid-area: header;
-}
-.tile > p {
-  grid-area: description;
 }
 
 /* media queries */

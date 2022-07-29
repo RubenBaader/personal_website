@@ -1,3 +1,9 @@
+/* Global variables are stored in App.css :root */
+/* local variables */
+.tile-container {
+  --transition-time: 200ms;
+}
+
 /* Grid container */
 .tile-container {
     display: grid;
@@ -19,16 +25,13 @@
       "img"
       "header"
       "description";
-    grid-template-rows: 3fr 1fr max-content;
+    grid-template-rows: auto 1fr max-content;
     height: 14em;
     border: 3px double hsl(0, 0%, 50%);
     border-radius: 1.0em;
     overflow: hidden;
     font-family: var(--secondary-font-family);
-    transition: transform 125ms ease-in-out;
-  }
-  .tile:hover {
-    transform: scale(1.1);
+    transition: transform var(--transition-time) ease-in-out;
   }
   .tile > * {
     text-align: center;
@@ -37,14 +40,24 @@
     grid-area: img;
     object-fit: cover;
     width: 100%;
+    height: 100%;
   }
   .tile > :is(h2, h3, h4, h5, h6) { 
     grid-area: header;
+    align-self: center;
   }
   .tile > p {
-    display: none;
+    display: block;
+    height: 0;
+    transition: height var(--transition-time) ease-in-out;
     grid-area: description;
   }
+
+  /* tile animations */
+  .tile:hover {
+    transform: scale(1.1);
+  }
   .tile:hover > p {
-    display: initial;
+    display: block;
+    height: 50px;
   }

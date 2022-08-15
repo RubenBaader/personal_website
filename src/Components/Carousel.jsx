@@ -21,14 +21,13 @@ const Carousel = (props) => {
         setIsRepeating(infiniteLoop && children.length > show)
     }, [children, infiniteLoop, show]);
 
-    /* track carousel direction and index */
+    /* track carousel direction and reset conditions */
     const DIRECTION = {
         LEFT: "LEFT",
         RIGHT: "RIGHT"
     };
     const [direction, setDirection] = useState(DIRECTION.LEFT);
     
-
     const resetIndex = () => {
         if (direction === DIRECTION.RIGHT) {
             setcurrentIndex(show)
@@ -36,7 +35,12 @@ const Carousel = (props) => {
             setcurrentIndex(length)
         }
     }
-
+    
+    const checkTransition = () => {
+        if (currentIndex < length + show || currentIndex > 0) {
+            setTransitionEnabled(true)
+        }
+    }
     const handleTransitionEnd = () => {
         if (currentIndex >= length + show || currentIndex <= 0) {
             setTransitionEnabled(false)
@@ -44,23 +48,18 @@ const Carousel = (props) => {
         }
     }
 
-    const checkTransition = () => {
-        if (currentIndex < length + show || currentIndex > 0) {
-            setTransitionEnabled(true)
-        }
-    }
 
-    const next = () => {
-        if (isRepeating || currentIndex < (length - show)) {
-            setcurrentIndex(prevState => prevState + 1)
-            setDirection(DIRECTION.RIGHT)
-            handleTransitionEnd() //prevents item array from going out of bounds on button spam
-        }
-    }
     const prev = () => {
         if (isRepeating || currentIndex > 0) {
             setcurrentIndex(prevState => prevState - 1)
             setDirection(DIRECTION.LEFT)
+            handleTransitionEnd() //prevents item array from going out of bounds on button spam
+        }
+    }
+    const next = () => {
+        if (isRepeating || currentIndex < (length - show)) {
+            setcurrentIndex(prevState => prevState + 1)
+            setDirection(DIRECTION.RIGHT)
             handleTransitionEnd() //prevents item array from going out of bounds on button spam
         }
     }

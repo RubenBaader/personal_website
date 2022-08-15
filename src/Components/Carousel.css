@@ -21,8 +21,8 @@
 
 .carousel-content {
     display: flex;
-    /* transition: all 350ms linear; */
-    -ms-overflow-style: none; /* nonstandard property */
+    /* transition is defined inline */
+    -ms-overflow-style: none;
     scrollbar-width:  none;
     font-size: xx-large;
 

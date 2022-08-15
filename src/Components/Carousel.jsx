@@ -21,35 +21,46 @@ const Carousel = (props) => {
         setIsRepeating(infiniteLoop && children.length > show)
     }, [children, infiniteLoop, show]);
 
-    useEffect(() => {
-        if (isRepeating) {
-            if (currentIndex === show || currentIndex === length) {
-                setTransitionEnabled(true)
-            }
-        }
-    }, [currentIndex, isRepeating, show, length])
+    /* track carousel direction and index */
+    const DIRECTION = {
+        LEFT: "LEFT",
+        RIGHT: "RIGHT"
+    };
+    const [direction, setDirection] = useState(DIRECTION.LEFT);
+    
 
-    const handleTransitionEnd = () => {
-        if (isRepeating) {
-            if (currentIndex <= 0) {
-                setTransitionEnabled(false)
-                setcurrentIndex(length)
-            } else if (currentIndex >= length + show) {
-                setTransitionEnabled(false)
-                setcurrentIndex(show)
-            }
+    const resetIndex = () => {
+        if (direction === DIRECTION.RIGHT) {
+            setcurrentIndex(show)
+        } else if (direction === DIRECTION.LEFT) {
+            setcurrentIndex(length)
         }
     }
-    
+
+    const handleTransitionEnd = () => {
+        if (currentIndex >= length + show || currentIndex <= 0) {
+            setTransitionEnabled(false)
+            resetIndex()
+        }
+    }
+
+    const checkTransition = () => {
+        if (currentIndex < length + show || currentIndex > 0) {
+            setTransitionEnabled(true)
+        }
+    }
+
     const next = () => {
         if (isRepeating || currentIndex < (length - show)) {
             setcurrentIndex(prevState => prevState + 1)
+            setDirection(DIRECTION.RIGHT)
             handleTransitionEnd() //prevents item array from going out of bounds on button spam
         }
     }
     const prev = () => {
         if (isRepeating || currentIndex > 0) {
             setcurrentIndex(prevState => prevState - 1)
+            setDirection(DIRECTION.LEFT)
             handleTransitionEnd() //prevents item array from going out of bounds on button spam
         }
     }
@@ -100,6 +111,7 @@ const Carousel = (props) => {
         const interval = setInterval(() => {
             if (!paused) {
             next();
+            checkTransition();
             }
         }, 3000)
         
@@ -113,7 +125,7 @@ const Carousel = (props) => {
             <div className="carousel-wrapper">
                 {
                     (isRepeating || currentIndex > 0) &&
-                    <button onClick={prev} className='left-arrow' >
+                    <button onClick={() => {prev(); checkTransition();}} className='left-arrow' >
                         &lt;
                     </button>
                 }
@@ -128,7 +140,7 @@ const Carousel = (props) => {
                         className={`carousel-content show-${show}`}
                         style={{
                             transform: `translateX(-${currentIndex * (100 / show)}%)`,
-                            transition: !transitionEnabled ? 'none' : undefined
+                            transition: `all ${transitionEnabled ? 450 : 0}ms linear`
                         }}
                         onTransitionEnd={() => handleTransitionEnd()} //this check smoothes scrolling at the end of the item array
                     >
@@ -145,7 +157,7 @@ const Carousel = (props) => {
                 </div>
                 {
                     (isRepeating || currentIndex < (length - show)) &&
-                    <button onClick={next} className='right-arrow'>
+                    <button onClick={() => {next(); checkTransition();}} className='right-arrow'>
                         &gt;
                     </button>
                 }

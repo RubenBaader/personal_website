@@ -1,0 +1,16 @@
+.carousel {
+    padding: calc(10px + 0.5vmin);
+    border: 6px double var(--main-border-color);
+    border-radius: 0.6em;
+}    
+
+
+.item {
+    height: clamp(200px, 400px, 70ch);
+
+    padding: calc(10px + 0.5vmin);
+    background-color: rgb(70, 21, 116);
+
+    /* border-radius: 0.2em;
+    overflow: hidden; */
+}

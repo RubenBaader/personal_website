@@ -8,29 +8,21 @@
     display: flex;
     width: 100%;
     position: relative;
-    
 }
 
 .carousel-content-wrapper {
-    overflow: hidden;
     width: 100%;
     height: 100%;
-/*     align-items: center;
-    justify-content: center; */
+    overflow: hidden;
+    border-radius: 0.6em;
 }
 
 .carousel-content {
     display: flex;
-    /* transition is defined inline */
+    transition: all 450ms linear;
     -ms-overflow-style: none;
     scrollbar-width:  none;
     font-size: xx-large;
-
-    /* 
-    background-color: hsl(0, 0%, 50%);
-    color: hsl(208, 100%, 97%);
-     */
-    /* white-space: nowrap; */
 }
 
 .carousel-content::-webkit-scrollbar {
@@ -39,11 +31,12 @@
 
 .carousel-content > * {
     width: 100%;
-    height: 200px;
+    height: 100%;
     
     flex-shrink: 0;
     flex-grow: 1;
-    background-color: rgb(97, 72, 42);
+    /* background-color: rgb(97, 72, 42); */
+    /* border: 1px solid red; */
 }
 
 .carousel-content.show-2 > * {

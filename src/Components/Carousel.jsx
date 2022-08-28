@@ -139,7 +139,8 @@ const Carousel = (props) => {
                         className={`carousel-content show-${show}`}
                         style={{
                             transform: `translateX(-${currentIndex * (100 / show)}%)`,
-                            transition: `all ${transitionEnabled ? 450 : 0}ms linear`
+                            transition: !transitionEnabled && 'none'
+                            // transition: `all ${transitionEnabled ? 450 : 0}ms linear`
                         }}
                         onTransitionEnd={() => handleTransitionEnd()} //this check smoothes scrolling at the end of the item array
                     >

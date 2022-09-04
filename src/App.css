@@ -17,11 +17,12 @@
   --main-bg-color:hsl(0, 0%, 78%);
   --secondary-bg-color: hsl(0, 0%, 10%);
   /* --secondary-bg-color: hsl(197, 15%, 36%); */
-  --button-color: hsl(0, 0%, 50%);
+  --button-color: hsl(0, 0%, 60%);
   --button-border-1: hsl(0, 0%, 70%);
   --button-border-2: hsl(0, 0%, 40%);
   --main-border-color: hsl(0, 0%, 40%);
   --main-text-color: hsl(227, 15%, 5%);
+  --describe-text-color: hsla(0, 0%, 40%, 0.95);
   --attention-color-one: hsl(98, 42%, 42%);
   --attention-color-two: hsl(61, 30%, 30%);
 
@@ -92,18 +93,24 @@ body {
 
 /* Headers */
 h1 {
-  /* margin: 0.5em; */
-
   color: var(--main-text-color);
   text-align: center;
   font-family: var(--main-font-family);
   font-size: 2.5rem;
 }
 
+h2 {
+  color: var(--main-text-color);
+  text-align: left;
+  font-family: var(--main-font-family);
+  /* text-transform: uppercase; */
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 /* Main text */
 .main-text {
   margin: 0 2ch 0 2ch;
-  color: var(--secondary-font-family);
+  color: var(--main-text-color);
   text-align: justify;
   font-family: var(--secondary-font-family);
   overflow-wrap: normal;
